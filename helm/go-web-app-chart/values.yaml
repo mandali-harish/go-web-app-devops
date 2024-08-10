@@ -8,7 +8,7 @@ image:
   repository: mandaliharish/go-web-app
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "10332383682"
+  tag: "10332499777"
 
 ingress:
   enabled: false
