@@ -6,25 +6,26 @@ on:
     paths-ignore:
       - 'README.md'
       - 'helm/**'
+      - 'K8s/**'
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
-  steps:
-  - name: Checkout repository
-    uses: actions/checkout@v4
-  
-  - name: Setup Go
-    uses: actions/setup-go@v2
-    with:
-      go-version:1.22
-  
-  - name: Build
-    run: go build -o go-web-app
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Setup Go
+      uses: actions/setup-go@v2
+      with:
+        go-version:1.22
+    
+    - name: Build
+      run: go build -o go-web-app
 
-  - name: Test
-    run: go test ./...
+    - name: Test
+      run: go test ./...
   
   code-quality:
     runs-on: Run ubuntu-latest
