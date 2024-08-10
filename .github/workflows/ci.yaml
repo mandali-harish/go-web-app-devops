@@ -19,7 +19,7 @@ jobs:
     - name: Setup Go
       uses: actions/setup-go@v2
       with:
-        go-version:1.22.5
+        go-version: 1.22.5
     
     - name: Build
       run: go build -o go-web-app
@@ -63,24 +63,24 @@ jobs:
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/go-web-app:${{github.run_id}}
 
-    update-newtag-in-helm-chart:
-      runs-on: ubuntu-latest
-      needs: push
+  update-newtag-in-helm-chart:
+    runs-on: ubuntu-latest
+    needs: push
 
-      steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with: 
-          token: ${{ secrets.TOKEN }}
-      
-      - name: Update tag in the Helm chart
-        run: |
-          sed -i 's/tag: .*/tag: "${{github.run_id}}"/' helm/go-web-app-chart/values.yaml
-      
-      - name: Commit and push changes
-        run: |
-          git config --global user.email "mandali.harish@gmail.com"
-          git config --global user.name "Mandali Harish Kumar"
-          git add helm/go-web-app-chart/values.yaml
-          git commit -m "Update tag in Helm chart"
-          git push
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with: 
+        token: ${{ secrets.TOKEN }}
+    
+    - name: Update tag in the Helm chart
+      run: |
+        sed -i 's/tag: .*/tag: "${{github.run_id}}"/' helm/go-web-app-chart/values.yaml
+    
+    - name: Commit and push changes
+      run: |
+        git config --global user.email "mandali.harish@gmail.com"
+        git config --global user.name "Mandali Harish Kumar"
+        git add helm/go-web-app-chart/values.yaml
+        git commit -m "Update tag in Helm chart"
+        git push
