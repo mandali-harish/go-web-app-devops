@@ -1,3 +1,7 @@
+# Devopsifying Go Web Application
+This is an example on how to apply DevOpsify a simple Go web appplication project. 
+
+
 # Go Web Application
 
 This is a simple website written in Golang. It uses the `net/http` package to serve HTTP requests.
