@@ -1,5 +1,5 @@
 # Devopsifying Go Web Application
-This is an example on how to apply DevOpsify a simple Go web appplication project. 
+This is an example on how to DevOpsify a simple Go web appplication project. 
 
 
 # Go Web Application
