@@ -1,5 +1,5 @@
 # First Stage
-FROM golang:1.22.5 as base
+FROM golang:1.23.2 as base
 
 WORKDIR /app
 
